@@ -13,10 +13,13 @@
 # and
 #   about_triangle_project_2.rb
 #
-def triangle(a, b, c)
-  sides_array = [a, b, c]
+def triangle(*sides)
+  raise TriangleError if sides.min <= 0
 
-  case sides_array.uniq.length
+  a, b, c = sides.sort
+  raise TriangleError if a + b <= c
+
+  case sides.uniq.length
   when 1
     :equilateral
   when 2
