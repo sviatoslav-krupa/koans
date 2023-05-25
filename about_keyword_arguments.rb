@@ -8,8 +8,8 @@ class AboutKeywordArguments < Neo::Koan
 
   def test_keyword_arguments
     assert_equal Array, method_with_keyword_arguments.class
-    assert_equal [1, 'two'], method_with_keyword_arguments
-    assert_equal ['one', 'two'], method_with_keyword_arguments(one: 'one')
+    assert_equal [1, "two"], method_with_keyword_arguments
+    assert_equal ['one', "two"], method_with_keyword_arguments(one: 'one')
     assert_equal [1, 2], method_with_keyword_arguments(two: 2)
   end
 
@@ -27,6 +27,5 @@ class AboutKeywordArguments < Neo::Koan
   # THINK ABOUT IT:
   #
   # Keyword arguments always have a default value, making them optional to the caller
-  # Default value is `nil` ???
 
 end

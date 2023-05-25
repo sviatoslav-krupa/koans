@@ -13,12 +13,12 @@ class AboutStrings < Neo::Koan
 
   def test_use_single_quotes_to_create_string_with_double_quotes
     string = 'He said, "Go Away."'
-    assert_equal 'He said, "Go Away."', string
+    assert_equal "He said, \"Go Away.\"", string
   end
 
   def test_use_double_quotes_to_create_strings_with_single_quotes
     string = "Don't"
-    assert_equal "Don't", string
+    assert_equal 'Don\'t', string
   end
 
   def test_use_backslash_for_those_hard_cases
@@ -129,7 +129,7 @@ EOS
   def test_single_quoted_strings_do_not_interpolate
     value = 123
     string = 'The value is #{value}'
-    assert_equal 'The value is #{value}', string
+    assert_equal "The value is \#{value}", string
   end
 
   def test_any_ruby_expression_may_be_interpolated
@@ -152,10 +152,10 @@ EOS
 
   in_ruby_version("1.8") do
     def test_in_older_ruby_single_characters_are_represented_by_integers
-      assert_equal __, ?a
-      assert_equal __, ?a == 97
+      assert_equal "a", ?a
+      assert_equal true, ?a == 97
 
-      assert_equal __, ?b == (?a + 1)
+      assert_equal true, ?b == (?a + 1)
     end
   end
 
@@ -169,13 +169,13 @@ EOS
   def test_strings_can_be_split
     string = "Sausage Egg Cheese"
     words = string.split
-    assert_equal ["Sausage", "Egg", "Cheese"], words
+    assert_equal %w[Sausage Egg Cheese], words
   end
 
   def test_strings_can_be_split_with_different_patterns
     string = "the:rain:in:spain"
     words = string.split(/:/)
-    assert_equal ["the", "rain", "in", "spain"], words
+    assert_equal %w[the rain in spain], words
 
     # NOTE: Patterns are formed from Regular Expressions.  Ruby has a
     # very powerful Regular Expression library.  We will become
@@ -191,7 +191,7 @@ EOS
     a = "a string"
     b = "a string"
 
-    assert_equal true, a           == b
+    assert_equal true, a == b
     assert_equal false, a.object_id == b.object_id
   end
 end

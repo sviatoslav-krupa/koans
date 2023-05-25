@@ -33,7 +33,6 @@ class AboutRegularExpressions < Neo::Koan
     # THINK ABOUT IT:
     #
     # When would * fail to match?
-    # => never
   end
 
   # THINK ABOUT IT:

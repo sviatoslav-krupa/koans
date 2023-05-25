@@ -118,6 +118,5 @@ class AboutIteration < Neo::Koan
   #   # code to read 'file'
   #
   # When you get to the "AboutSandwichCode" koan, recheck your answer.
-  # => https://ruby-doc.org/core-2.5.0/File.html#method-c-open
 
 end
