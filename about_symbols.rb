@@ -33,6 +33,9 @@ class AboutSymbols < Neo::Koan
   # Why do we convert the list of symbols to strings and then compare
   # against the string value rather than against symbols?
 
+  # Explanation:
+  #   * https://stackoverflow.com/questions/4686097/ruby-koans-why-convert-list-of-symbols-to-strings
+
   in_ruby_version("mri") do
     RubyConstant = "What is the sound of one hand clapping?"
     def test_constants_become_symbols
@@ -64,7 +67,7 @@ class AboutSymbols < Neo::Koan
     symbol = :cats
     string = "It is raining #{symbol} and dogs."
 
-    assert_equal "It is raining cats and dogs.", string
+    assert_equal  "It is raining cats and dogs.", string
   end
 
   def test_symbols_are_not_strings
@@ -97,4 +100,7 @@ class AboutSymbols < Neo::Koan
   # THINK ABOUT IT:
   #
   # Why is it not a good idea to dynamically create a lot of symbols?
+
+  # Explanation:
+  #   * https://stackoverflow.com/questions/4573991/why-is-it-not-a-good-idea-to-dynamically-create-a-lot-of-symbols-in-ruby-for-ve
 end

@@ -13,12 +13,12 @@ class AboutStrings < Neo::Koan
 
   def test_use_single_quotes_to_create_string_with_double_quotes
     string = 'He said, "Go Away."'
-    assert_equal "He said, \"Go Away.\"", string
+    assert_equal 'He said, "Go Away."', string
   end
 
   def test_use_double_quotes_to_create_strings_with_single_quotes
     string = "Don't"
-    assert_equal 'Don\'t', string
+    assert_equal "Don't", string
   end
 
   def test_use_backslash_for_those_hard_cases
@@ -33,6 +33,10 @@ class AboutStrings < Neo::Koan
     c = %{flexible quotes can handle both ' and " characters}
     assert_equal true, a == b
     assert_equal true, a == c
+
+    # Explanation:
+    #   * https://stackoverflow.com/questions/22107174/is-there-a-difference-between-flexible-quotes-in-ruby
+    #   * https://medium.com/swlh/ruby-strings-under-a-microscope-2ddec13a5dac
   end
 
   def test_flexible_quotes_can_handle_multiple_lines
@@ -102,6 +106,9 @@ EOS
     #
     # Ruby programmers tend to favor the shovel operator (<<) over the
     # plus equals operator (+=) when building up strings.  Why?
+
+    # Explanation:
+    #   * https://stackoverflow.com/questions/4684446/why-is-the-shovel-operator-preferred-over-plus-equals-when-building-a
   end
 
   def test_double_quoted_string_interpret_escape_characters
@@ -123,13 +130,13 @@ EOS
   def test_double_quoted_strings_interpolate_variables
     value = 123
     string = "The value is #{value}"
-    assert_equal "The value is 123", string
+    assert_equal  "The value is 123", string
   end
 
   def test_single_quoted_strings_do_not_interpolate
     value = 123
     string = 'The value is #{value}'
-    assert_equal "The value is \#{value}", string
+    assert_equal 'The value is #{value}', string
   end
 
   def test_any_ruby_expression_may_be_interpolated
@@ -148,6 +155,9 @@ EOS
     assert_equal "a", string[1]
 
     # Surprised?
+
+    # Explanation:
+    #   * Ruby starts counting from 0, not 1
   end
 
   in_ruby_version("1.8") do
@@ -155,7 +165,7 @@ EOS
       assert_equal "a", ?a
       assert_equal true, ?a == 97
 
-      assert_equal true, ?b == (?a + 1)
+      assert_equal "b", ?b == (?a + 1)
     end
   end
 
@@ -169,13 +179,13 @@ EOS
   def test_strings_can_be_split
     string = "Sausage Egg Cheese"
     words = string.split
-    assert_equal %w[Sausage Egg Cheese], words
+    assert_equal ["Sausage", "Egg", "Cheese"], words
   end
 
   def test_strings_can_be_split_with_different_patterns
     string = "the:rain:in:spain"
     words = string.split(/:/)
-    assert_equal %w[the rain in spain], words
+    assert_equal ["the", "rain", "in", "spain"], words
 
     # NOTE: Patterns are formed from Regular Expressions.  Ruby has a
     # very powerful Regular Expression library.  We will become

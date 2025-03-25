@@ -42,4 +42,8 @@ class AboutOpenClasses < Neo::Koan
 
   # NOTE: To understand why we need the :: before Integer, you need to
   # become enlightened about scope.
+
+  # Explanation:
+  #   * We use scope resolution operator (::) to access the Integer class
+  #   * Without it, Ruby would think we are trying to create a new class called Integer inside the AboutOpenClasses class
 end

@@ -33,6 +33,10 @@ class AboutRegularExpressions < Neo::Koan
     # THINK ABOUT IT:
     #
     # When would * fail to match?
+
+    # Explanation:
+    #   * Never :)
+    #   * https://stackoverflow.com/questions/5084141/getting-the-star-regex-operator-to-fail
   end
 
   # THINK ABOUT IT:
@@ -40,6 +44,9 @@ class AboutRegularExpressions < Neo::Koan
   # We say that the repetition operators above are "greedy."
   #
   # Why?
+
+  # Explanation:
+  #   * https://stackoverflow.com/questions/2301285/what-do-lazy-and-greedy-mean-in-the-context-of-regular-expressions
 
   # ------------------------------------------------------------------
 
@@ -144,6 +151,9 @@ class AboutRegularExpressions < Neo::Koan
   # THINK ABOUT IT:
   #
   # Explain the difference between a character class ([...]) and alternation (|).
+
+  # Explanation:
+  #   * https://stackoverflow.com/questions/22132450/why-is-a-character-class-faster-than-alternation
 
   # ------------------------------------------------------------------
 

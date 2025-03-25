@@ -1,3 +1,6 @@
+# Notes:
+#   * https://ru.wikipedia.org/wiki/JRuby
+
 require File.expand_path(File.dirname(__FILE__) + '/neo')
 
 include Java

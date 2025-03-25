@@ -124,6 +124,9 @@ class AboutClasses < Neo::Koan
     end
     # THINK ABOUT IT:
     # Why is this so?
+
+    # Explanation:
+    #   * The initialize method expects an argument, so when we call Dog6.new without any arguments, it raises an ArgumentError
   end
 
   def test_different_objects_have_different_instance_variables

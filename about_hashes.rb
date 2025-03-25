@@ -29,7 +29,12 @@ class AboutHashes < Neo::Koan
 
     # THINK ABOUT IT:
     #
-    # Why might you want to use #fetch instead of #[] when accessing hash keys?
+    # Why might you want to use #fetch instead of `[]` when accessing hash keys?
+
+    # Explanation:
+    #   * .fetch raises an exception when the key is not found, while [] returns nil
+    #   * .fetch can also return a default value when the key is not found
+    #   * .fetch can also take a block to return a default value when the key is not found
   end
 
   def test_changing_hashes
@@ -41,6 +46,12 @@ class AboutHashes < Neo::Koan
 
     # Bonus Question: Why was "expected" broken out into a variable
     # rather than used as a literal?
+
+    # Explanation:
+    #   * `assert_equal { :one => "eins", :two => "dos" }, hash` raises syntax error
+    #   * https://stackoverflow.com/questions/7533711/what-is-the-answer-to-the-bonus-question-in-test-changing-hashes-of-ruby-koans
+
+    assert_equal({ :one => "eins", :two => "dos" }, hash)
   end
 
   def test_hash_is_unordered
@@ -112,5 +123,15 @@ class AboutHashes < Neo::Koan
     assert_equal ["uno"], hash[:one]
     assert_equal ["dos"], hash[:two]
     assert_equal [], hash[:three]
+  end
+
+  def test_default_value_attribute
+    hash = Hash.new
+
+    assert_equal nil, hash[:some_key]
+
+    hash.default = 'peanut'
+
+    assert_equal "peanut", hash[:some_key]
   end
 end

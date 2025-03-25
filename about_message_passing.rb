@@ -24,8 +24,8 @@ class AboutMessagePassing < Neo::Koan
     mc = MessageCatcher.new
 
     assert mc.send("caught?")
-    assert mc.send("caught" + "?" )    # What do you need to add to the first string?
-    assert mc.send("CAUGHT?".downcase )      # What would you need to do to the string?
+    assert mc.send("caught" + "?" )     # What do you need to add to the first string?
+    assert mc.send("CAUGHT?".downcase ) # What would you need to do to the string?
   end
 
   def test_send_with_underscores_will_also_send_messages
@@ -36,6 +36,9 @@ class AboutMessagePassing < Neo::Koan
     # THINK ABOUT IT:
     #
     # Why does Ruby provide both send and __send__ ?
+
+    # Explanation:
+    #   * https://stackoverflow.com/questions/4658269/ruby-send-vs-send
   end
 
   def test_classes_can_be_asked_if_they_know_how_to_respond
@@ -90,13 +93,16 @@ class AboutMessagePassing < Neo::Koan
     exception = assert_raise(NoMethodError) do
       typical.method_missing(:foobar)
     end
-    assert_match(/foobar/, exception.message)
+    assert_match(/undefined method/, exception.message)
 
     # THINK ABOUT IT:
     #
     # If the method :method_missing causes the NoMethodError, then
     # what would happen if we redefine method_missing?
-    #
+
+    # Explanation:
+    #   * We can override `method_missing` to customize the behavior in case if a method is not found
+
     # NOTE:
     #
     # In Ruby 1.8 the method_missing method is public and can be
@@ -150,8 +156,8 @@ class AboutMessagePassing < Neo::Koan
   def test_foo_method_are_caught
     catcher = WellBehavedFooCatcher.new
 
-    assert_equal "Foo to you too", catcher.foo_bar
-    assert_equal "Foo to you too", catcher.foo_baz
+    assert_equal  "Foo to you too", catcher.foo_bar
+    assert_equal  "Foo to you too", catcher.foo_baz
   end
 
   def test_non_foo_messages_are_treated_normally

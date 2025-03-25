@@ -36,12 +36,12 @@ class AboutMethods < Neo::Koan
     exception = assert_raise(ArgumentError) do
       my_global_method
     end
-    assert_match(/wrong number of arguments/, exception.message)
+    assert_match(/wrong number/, exception.message)
 
     exception = assert_raise(ArgumentError) do
       my_global_method(1,2,3)
     end
-    assert_match(/wrong number of arguments/, exception.message)
+    assert_match(/wrong number/, exception.message)
   end
 
   # ------------------------------------------------------------------
@@ -88,7 +88,7 @@ class AboutMethods < Neo::Koan
   end
 
   def test_method_without_explicit_return
-    assert_equal :return_value, method_without_explicit_return
+    assert_equal  :return_value, method_without_explicit_return
   end
 
   # ------------------------------------------------------------------
@@ -121,7 +121,7 @@ class AboutMethods < Neo::Koan
       exception = assert_raise(NoMethodError) do
         self.my_private_method
       end
-      assert_match /private method/, exception.message
+      assert_match /private method called/, exception.message
     end
   end
 

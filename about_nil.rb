@@ -17,7 +17,7 @@ class AboutNil < Neo::Koan
 
       # What message was attached to the exception?
       # (HINT: replace __ with part of the error message.)
-      assert_match(/undefined method `some_method_nil_doesnt_know_about' for nil:NilClass/, ex.message)
+      assert_match(/undefined method/, ex.message)
     end
   end
 
@@ -33,6 +33,9 @@ class AboutNil < Neo::Koan
     # or
     #    obj == nil
     # Why?
+
+    # Explanation:
+    #   * https://stackoverflow.com/questions/1972266/obj-nil-vs-obj-nil
   end
 
 end

@@ -69,6 +69,9 @@ class AboutConstants < Neo::Koan
   # QUESTION: Which has precedence: The constant in the lexical scope,
   # or the constant from the inheritance hierarchy?
 
+  # Explanation:
+  #   * https://stackoverflow.com/questions/4627735/ruby-explicit-scoping-on-a-class-definition
+
   # ------------------------------------------------------------------
 
   class MyAnimals::Oyster < Animal
@@ -84,4 +87,7 @@ class AboutConstants < Neo::Koan
   # QUESTION: Now which has precedence: The constant in the lexical
   # scope, or the constant from the inheritance hierarchy?  Why is it
   # different than the previous answer?
+
+  # Explanation:
+  #   * https://stackoverflow.com/questions/13661193/ruby-scopes-constants-precedence-lexical-scope-or-inheritance-tree
 end

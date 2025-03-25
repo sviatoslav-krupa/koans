@@ -89,6 +89,9 @@ class AboutIteration < Neo::Koan
 
     # Extra Credit:
     # Describe in your own words what inject does.
+
+    # Explanation:
+    #   * .inject/.reduce is a method that takes an initial value and a block. It applies the block to each element of the array and accumulates the result
   end
 
   def test_all_iteration_methods_work_on_any_collection_not_just_arrays
@@ -118,5 +121,8 @@ class AboutIteration < Neo::Koan
   #   # code to read 'file'
   #
   # When you get to the "AboutSandwichCode" koan, recheck your answer.
+
+  # Explanation:
+  #   * The first way is better because it automatically closes the file after the block is executed. The second way requires you to manually close the file
 
 end
